@@ -35,11 +35,11 @@ jobs:
         run: |
           echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;22.1.7171670" --sdk_root=${ANDROID_SDK_ROOT}
 
-      - name: Gradle Build
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: assembleDebug
-          gradle-home-cache-cleanup: true
+      - name: Build the app
+        run: |
+          if [ ! -f "gradlew" ]; then gradle wrapper; fi
+          chmod +x gradlew
+          ./gradlew assembleDebug --stacktrace
 
       - name: Uploading Artifact
         uses: actions/upload-artifact@v3
