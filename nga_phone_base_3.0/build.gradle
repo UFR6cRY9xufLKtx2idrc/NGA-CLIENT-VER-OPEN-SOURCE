@@ -51,7 +51,6 @@ android {
             pseudoLocalesEnabled false
             minifyEnabled false
             zipAlignEnabled true
-            signingConfig signingConfigs.signingConfig
         }
     }
 
