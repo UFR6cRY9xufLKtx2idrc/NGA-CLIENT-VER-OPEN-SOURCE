@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: 11
+          java-version: 16
           check-latest: true
 
       - name: Install latest build tools
@@ -44,22 +44,7 @@ jobs:
           arguments: assembleDebug
           gradle-home-cache-cleanup: true
 
-      - name: Create 7z Release
-        uses: DuckSoft/create-7z-action@v1.0
-        with:
-          pathSource: ./
-          pathTarget: ./release.7z
-
       - name: Uploading Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: my-build-apk.7z
-          path: release.7z
-
-      - name: Upload binaries to release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: release.7z
-          tag: ${{ github.ref }}
-          overwrite: true
+          path: ./nga_phone_base_3.0/build/outputs/apk/debug/nga_phone_base_3.0-debug.apk
