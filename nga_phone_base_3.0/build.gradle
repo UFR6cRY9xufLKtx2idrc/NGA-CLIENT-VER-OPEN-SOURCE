@@ -16,18 +16,11 @@ def isJenkins() {
 android {
     compileSdkVersion project.compileSdkVersion
 
-    signingConfig {
-        if (isJenkins()) {
-            storeFile file('./nga_phone_base_3.0/keystore/androidkey.jks')
-        } else {
-            storeFile file('./nga_phone_base_3.0/keystore/androidkey.jks')
+    signingConfigs {
+        signingConfig {
+            enableV3Signing = true
+            enableV4Signing = true
         }
-        storePassword = "000000"
-        keyAlias = "key0"
-        keyPassword = "000000"
-
-        enableV3Signing = true
-        enableV4Signing = true
     }
 
     packagingOptions {
@@ -70,11 +63,6 @@ android {
             minifyEnabled false
             zipAlignEnabled true
             signingConfig signingConfigs.signingConfig
-        }
-        debug {
-            applicationIdSuffix '.debug'
-            debuggable true
-            minifyEnabled false
         }
     }
 
