@@ -16,17 +16,14 @@ def isJenkins() {
 android {
     compileSdkVersion project.compileSdkVersion
 
-    signingConfigs {
-        signingConfig {
-            if (isJenkins()) {
-                storeFile file('../../android19910914.keystore')
-            } else {
-                storeFile file('..\\keystore\\android19910914.keystore')
-            }
-            storePassword '19910914'
-            keyAlias 'android.keystore'
-            keyPassword '19910914'
-        }
+    val signConfig = signingConfigs.create("release") {
+        storeFile = File(projectDir.path + "/keystore/androidkey.jks")
+        storePassword = "000000"
+        keyAlias = "key0"
+        keyPassword = "000000"
+
+        enableV3Signing = true
+        enableV4Signing = true
     }
 
     packagingOptions {
