@@ -18,7 +18,11 @@ android {
 
     signingConfigs {
         signingConfig {
-            storeFile = File(projectDir.path + "/keystore/androidkey.jks")
+            if (isJenkins()) {
+                storeFile file('../../androidkey.jks')
+            } else {
+                storeFile file('..\\keystore\\androidkey.jks')
+            }
             storePassword = "000000"
             keyAlias = "key0"
             keyPassword = "000000"
