@@ -21,7 +21,7 @@ android {
             if (isJenkins()) {
                 storeFile file('../../androidkey.jks')
             } else {
-                storeFile file('..\..\keystore\\androidkey.jks')
+                storeFile file('..\..\keystore\androidkey.jks')
             }
             storePassword = "000000"
             keyAlias = "key0"
