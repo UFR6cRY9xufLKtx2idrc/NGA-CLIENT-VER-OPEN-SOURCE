@@ -41,24 +41,10 @@ jobs:
       - name: Gradle Build
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: assembleRelease
+          arguments: assembleDebug
           gradle-home-cache-cleanup: true
-
-      - name: Create 7z Release
-        uses: DuckSoft/create-7z-action@v1.0
-        with:
-          pathSource: ./nga_phone_base_3.0/build/outputs/apk/
-          pathTarget: ./release.7z
 
       - name: Uploading Artifact
         uses: actions/upload-artifact@v3
         with:
-          path: release.7z
-
-      - name: Upload binaries to release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: release.7z
-          tag: ${{ github.ref }}
-          overwrite: true
+          path: ./nga_phone_base_3.0/build/outputs/apk/debug/nga_phone_base_3.0-debug.apk
