@@ -43,7 +43,7 @@ project.ext {
     androidxAppcompat = '1.2.0-alpha03'
     androidxMaterial = '1.2.0'
 
-    room_version = "2.4.1"
+    room_version = "2.5.0"
 
     preference_version = "1.1.1"
 }
