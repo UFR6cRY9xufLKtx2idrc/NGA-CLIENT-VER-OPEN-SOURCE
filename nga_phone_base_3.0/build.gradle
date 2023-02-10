@@ -62,14 +62,6 @@ android {
         abortOnError false
         disable 'MissingTranslation'
     }
-
-    android.applicationVariants.all { variant ->
-        variant.outputs.all {
-            if (outputFile != null && outputFileName.endsWith('.apk') && variant.buildType.name == "release") {
-                outputFileName = "nga_phone_${defaultConfig.versionName}_${getDate()}.apk"
-            }
-        }
-    }
 }
 
 repositories {
