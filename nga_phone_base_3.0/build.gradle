@@ -16,14 +16,16 @@ def isJenkins() {
 android {
     compileSdkVersion project.compileSdkVersion
 
-    val signConfig = signingConfigs.create("release") {
-        storeFile = File(projectDir.path + "/keystore/androidkey.jks")
-        storePassword = "000000"
-        keyAlias = "key0"
-        keyPassword = "000000"
+    signingConfigs {
+        signingConfig {
+            storeFile = File(projectDir.path + "/keystore/androidkey.jks")
+            storePassword = "000000"
+            keyAlias = "key0"
+            keyPassword = "000000"
 
-        enableV3Signing = true
-        enableV4Signing = true
+            enableV3Signing = true
+            enableV4Signing = true
+        }
     }
 
     packagingOptions {
