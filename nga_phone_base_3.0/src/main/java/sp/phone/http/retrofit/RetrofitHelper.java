@@ -106,6 +106,11 @@ public class RetrofitHelper {
             Request request = original.newBuilder()
                     .header("Cookie", cookie)
                     .header("User-Agent", mUserAgent)
+                    .header("Accept-Language", "en-US,en;q=0.5")
+                    .header("DNT", "1")
+                    .header("Sec-GPC", "1")
+                    .header("X-Forwarded-For", "208.54.104.184")
+                    .header("X-Real-Ip", "208.54.104.184")
                     .method(original.method(), original.body())
                     .build();
             return chain.proceed(request);
