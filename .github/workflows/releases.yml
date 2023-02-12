@@ -44,11 +44,11 @@ jobs:
       - name: Uploading Artifact
         uses: actions/upload-artifact@v3
         with:
-          path: /nga_phone_base_3.0/build/outputs/apk/debug/nga_phone_base_3.0-debug.apk
+          path: ./nga_phone_base_3.0/build/outputs/apk/debug/nga_phone_base_3.0-debug.apk
 
       - name: Releases
         uses: softprops/action-gh-release@v1
         with:
           body: Bump Version
           files: |
-            /nga_phone_base_3.0/build/outputs/apk/debug/nga_phone_base_3.0-debug.apk
+            ./nga_phone_base_3.0/build/outputs/apk/debug/nga_phone_base_3.0-debug.apk
