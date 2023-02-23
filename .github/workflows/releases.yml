@@ -38,17 +38,18 @@ jobs:
       - name: Gradle Build
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: assembleDebug
+          arguments: assembleRelease
           gradle-home-cache-cleanup: true
 
       - name: Uploading Artifact
         uses: actions/upload-artifact@v3
         with:
-          path: ./nga_phone_base_3.0/build/outputs/apk/debug/nga_phone_base_3.0-debug.apk
+          name: nga_phone_base_3.0-release-unsigned.apk
+          path: ./nga_phone_base_3.0/build/outputs/apk/release/nga_phone_base_3.0-release-unsigned.apk
 
       - name: Releases
         uses: softprops/action-gh-release@v1
         with:
           body: Bump Version
           files: |
-            ./nga_phone_base_3.0/build/outputs/apk/debug/nga_phone_base_3.0-debug.apk
+            ./nga_phone_base_3.0/build/outputs/apk/release/nga_phone_base_3.0-release-unsigned.apk
