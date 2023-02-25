@@ -49,3 +49,4 @@ jobs:
         with:
           name: nga_phone_base_3.0-release-unsigned.apk
           path: ./nga_phone_base_3.0/build/outputs/apk/release/nga_phone_base_3.0-release-unsigned.apk
+          if-no-files-found: error
