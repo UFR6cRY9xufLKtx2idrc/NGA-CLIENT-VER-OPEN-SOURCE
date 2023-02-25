@@ -26,7 +26,6 @@ android {
         applicationId "gov.anzong.androidnga"
         minSdkVersion project.minSdkVersion
         targetSdkVersion project.targetSdkVersion
-        multiDexEnabled true
         resConfigs "zh", "en"
 
         versionCode project.appVersionCode
@@ -46,9 +45,6 @@ android {
     buildTypes {
         release {
             debuggable true
-            jniDebuggable false
-            renderscriptDebuggable false
-            pseudoLocalesEnabled false
             minifyEnabled false
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
