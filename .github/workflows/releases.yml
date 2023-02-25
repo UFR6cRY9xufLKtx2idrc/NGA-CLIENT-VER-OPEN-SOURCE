@@ -46,10 +46,10 @@ jobs:
         with:
           name: nga_phone_base_3.0-release-unsigned.apk
           path: ./nga_phone_base_3.0/build/outputs/apk/release/nga_phone_base_3.0-release-unsigned.apk
+          if-no-files-found: error
 
       - name: Releases
         uses: softprops/action-gh-release@v1
         with:
           body: Bump Version
-          files: |
-            ./nga_phone_base_3.0/build/outputs/apk/release/nga_phone_base_3.0-release-unsigned.apk
+          files: ./nga_phone_base_3.0/build/outputs/apk/release/nga_phone_base_3.0-release-unsigned.apk
